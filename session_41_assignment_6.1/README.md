@@ -1,4 +1,4 @@
-# Implement the k-Nearest Neighbors (kNN) algorithm for 3 classes, 
+# Implement the k-Nearest Neighbors (kNN) algorithm for 3 classes
 - 🍎 Apple
 - 🍌 Banana
 - 🍉 Watermelon.
