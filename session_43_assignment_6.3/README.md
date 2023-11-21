@@ -1,4 +1,4 @@
-# 6.2.Assignment -> k-Nearest Neighbors (KNN)
+# 6.3.Assignment -> k-Nearest Neighbors (KNN)
 
 ### Install Dependencies:
 ```bash
