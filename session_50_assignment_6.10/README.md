@@ -16,5 +16,5 @@
 ### Model Losses With 100 Epochs With *25647.9785* loss.
 ![House Prices Model Losses](./results/house/house_model_losses.png)
 
-### I Submited my model into kaggle competition:
+### I Submited My Model Into Kaggle Competition:
 ![I Submited my model into kaggle competition](./results/house/Kaggle_competitions.png)
