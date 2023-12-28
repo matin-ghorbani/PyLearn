@@ -80,7 +80,7 @@ class Game(arcade.Window):
             data['direction'] = LEFT
 
         # TODO: Apple is on the up
-        if self.snake.center_y < self.food.center_y:
+        if self.snake.center_y < self.food.center_y and self.snake.center_x == self.food.center_x:
             data['apple_up'] = 1
             data['apple_right'] = 0
             data['apple_down'] = 0
@@ -88,7 +88,7 @@ class Game(arcade.Window):
             print('Apple is on the up')
 
         # TODO: Apple is on the right
-        elif self.snake.center_x < self.food.center_x:
+        elif self.snake.center_x < self.food.center_x and self.snake.center_y == self.food.center_y:
             data['apple_up'] = 0
             data['apple_right'] = 1
             data['apple_down'] = 0
@@ -96,7 +96,7 @@ class Game(arcade.Window):
             print('Apple is on the right')
 
         # TODO: Apple is on the down
-        elif self.snake.center_y > self.food.center_y:
+        elif self.snake.center_y > self.food.center_y and self.snake.center_x == self.food.center_x:
             data['apple_up'] = 0
             data['apple_right'] = 0
             data['apple_down'] = 1
@@ -104,7 +104,7 @@ class Game(arcade.Window):
             print('Apple is on the down')
 
         # TODO: Apple is on the left
-        elif self.snake.center_x > self.food.center_x:
+        elif self.snake.center_x > self.food.center_x and self.snake.center_y == self.food.center_y:
             data['apple_up'] = 0
             data['apple_right'] = 0
             data['apple_down'] = 0
@@ -209,7 +209,7 @@ class Game(arcade.Window):
         # TODO: Quit and save the data as a Pandas DataFrame and save it as csv file
         if symbol == arcade.key.ESCAPE:
             df = pd.DataFrame(self.data)
-            df.to_csv('dataset/dataset.csv', index=False)
+            df.to_csv('dataset/dataset_version2.csv', index=False)
 
             arcade.close_window()
             arcade.exit()

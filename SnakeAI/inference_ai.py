@@ -20,7 +20,8 @@ class Game(arcade.Window):
         self.food = Apple(self)
         self.score = 0
 
-        self.model: Sequential = load_model('./Snake_weight_60ep.h5')
+        # self.model: Sequential = load_model('./Snake_weight_60ep.h5')
+        self.model: Sequential = load_model('./Snake_weight_60ep_version2.h5')
 
     def on_draw(self):
         arcade.start_render()
@@ -56,31 +57,11 @@ class Game(arcade.Window):
         distance_x = self.snake.center_x - self.food.center_x
         distance_y = self.snake.center_y - self.food.center_y
 
-        if self.snake.center_y < self.food.center_y:
-            self.snake.change_x = 0
-            self.snake.change_y = 1
-            data['direction'] = UP
-
-        elif self.snake.center_x < self.food.center_x:
-            self.snake.change_x = 1
-            self.snake.change_y = 0
-            data['direction'] = RIGHT
-
-        elif self.snake.center_y > self.food.center_y:
-            self.snake.change_x = 0
-            self.snake.change_y = -1
-            data['direction'] = DOWN
-
-        elif self.snake.center_x > self.food.center_x:
-            self.snake.change_x = -1
-            self.snake.change_y = 0
-            data['direction'] = LEFT
-
         # TODO: Apple is on the up
         if self.snake.center_y < self.food.center_y:
             data['apple_up'] = 1
             data['apple_right'] = 0
-            data['apple_down'] = 0
+            data['apple_down'] = 0            
             data['apple_left'] = 0
             print('Apple is on the up')
 
@@ -110,17 +91,20 @@ class Game(arcade.Window):
 
         # TODO: Wall and apple distances
         data['wall_up'] = game.height - self.snake.center_y
+        data['wall_right'] = game.width - self.snake.center_x
         data['wall_down'] = self.snake.center_y
         data['wall_left'] = self.snake.center_x
-        data['wall_right'] = game.width - self.snake.center_x
+
 
         data['distance_x'] = distance_x
         data['distance_y'] = distance_y
 
+
+        data = pd.DataFrame(data, index=[1])
+        data = data.values
         # TODO: Predict on data
-        output: np.ndarray = self.model.predict(np.array([data]))
+        output = self.model.predict(data)
         prediction = output.argmax()
-        print(f'Direction predicted: {prediction}')
 
         # TODO: Give snake direction
         if prediction == UP:
@@ -136,7 +120,7 @@ class Game(arcade.Window):
             self.snake.change_x = -1
             self.snake.change_y = 0
 
-        self.snake.on_update(delta_time)
+        self.snake.on_update()
         self.food.on_update()
 
         if arcade.check_for_collision(self.snake, self.food):

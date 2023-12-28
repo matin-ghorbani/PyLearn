@@ -1,5 +1,4 @@
 # TODO: Import dependencies
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -12,7 +11,8 @@ from keras.src.callbacks import History
 
 
 # TODO: Load the dataset
-data = pd.read_csv('dataset/dataset.csv')
+# data = pd.read_csv('dataset/dataset.csv')
+data = pd.read_csv('dataset/dataset_version2.csv')
 # print(data.head(10), '\n\n\n')
 # print(data.tail(10))
 
@@ -43,7 +43,8 @@ model.compile(optimizer=Adam(),
 output_history: History = model.fit(x_train, y_train, epochs=60)
 
 # TODO: Save the model
-model.save('Snake_weight_60ep.h5')
+# model.save('Snake_weight_60ep.h5')
+model.save('Snake_weight_60ep_version2.h5')
 
 # TODO: Plot results
 loss, accuracy = model.evaluate(x_test, y_test)
