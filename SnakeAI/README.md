@@ -1,0 +1,1 @@
+train Loss: 3.782646672334522e-06, Accuracy: 1.0
