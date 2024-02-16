@@ -1,0 +1,6 @@
+names:
+- License-Plate
+path: /content/Persian_License_Plate_Detection_7
+train: train/images
+val: valid/images
+test: test/images
