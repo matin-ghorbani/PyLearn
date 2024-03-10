@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ![persian had writing](./easyOCR/images/persian_plate.jpg)
 ---
 #### Results: 
-*`U $ GovernmenT`, `٣٤٥ب١٢`*
+*`٣٤٥ب١٢`*
 
 ## DTRB Inferences
 
