@@ -1,0 +1,6 @@
+keras
+librosa
+numpy
+pydub
+pyTelegramBotAPI
+tqdm
