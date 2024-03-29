@@ -83,7 +83,7 @@ if __name__ == '__main__':
         thresh=25,
         face_bank_path='./face_bank.npy',
         camera_id=0,
-        is_show=False  # Keep it false I have a threading error here
+        is_show=False
     )
     game = Game(access, message)
     arcade.run()
