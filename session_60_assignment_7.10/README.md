@@ -103,3 +103,6 @@ access, message = FaceIdentification.make_online(
     is_show=False  # Keep it false I have a threading error here 🙂️
 )
 ```
+
+### Result of face id:
+![Result Of Identification](./io/output/result_super_snake.png)
