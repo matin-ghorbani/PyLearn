@@ -36,7 +36,7 @@ class EmojiTextClassifier:
     def sentence_to_feature_vectors_avg(self, sentence: str) -> np.ndarray[np.floating] | None:
         sentence = sentence.lower()
         words = sentence.strip().split(' ')
-        sum_vectors = np.zeros((50, ))
+        sum_vectors = np.zeros((self.dimension, ))
 
         try:
             for word in words:

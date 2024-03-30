@@ -2,7 +2,6 @@ from time import time
 from argparse import ArgumentParser, BooleanOptionalAction
 
 from text_classifier import EmojiTextClassifier
-from tqdm import tqdm
 
 args = ArgumentParser()
 args.add_argument('--model', type=str,
@@ -25,7 +24,7 @@ print(emoji)
 
 if opt.infer:
     start_time = time()
-    for i in tqdm(range(opt.n_infer)):
+    for i in range(opt.n_infer):
         classifier.predict(opt.sentence)
     
     duration = time() - start_time
