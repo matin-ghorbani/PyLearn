@@ -1,3 +1,49 @@
+# Text Emoji Classification
+## This task solved with this repo
+- Text Classification: I used [GloVe](https://nlp.stanford.edu/projects/glove/) pre-trained embeddings to convert my text to numerical vectors.
+
+## How to install
+### Run this command:
+```bash
+pip install -r requirements.txt
+```
+***Also you can download the GloVe pre-trained embeddings***
+```bash
+wget http://nlp.stanford.edu/data/glove.6B.zips
+```
+
+## How to train
+### Run this command:
+```bash
+python train.py --train-dataset YOUR_TRAIN_DATASET --test-dataset YOUR_TEST_DATASET \
+--dimension DIMENSION_OF_FEATURE_VECTORS --vectors-file YOUR_FEATURE_VECTORS_FILE \
+--epochs NUMBER_OF_EPOCHS
+```
+
+#### You can also see the other arguments of it with this command
+```bash
+python train.py --help
+```
+*For Example:*
+- *`--dropout, --no-dropout`*: You can add dropout layer to your network. **default:***`False`*
+- *`--model-save`*: You change the best model name to save. **default:***`best_emojis_classifier.keras`*
+- *`--save-plots, --no-save-plots`*: You can save the training information plots. **default:***`True`*
+
+## How to test
+### Run this command:
+```bash
+python test.py --model YOUR_MODEL --vectors-file YOUR_FEATURE_VECTORS_FILE \
+--sentence YOUR_SENTENCE
+```
+#### You can also see the other arguments of it with this command
+```bash
+python test.py --help
+```
+*For Example:*
+- *`--infer, --no-infer`*: Whether to inferences the model with your sentence or not. **default:***`True`*
+- *`--n-infer`*: You can change number of inferences on your sentence. **default:***`100`*
+
+## Benchmark
 ### Without Dropout layer
 <table>
     <tr>
