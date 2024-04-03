@@ -12,7 +12,7 @@ args.add_argument('--sentence', type=str,
                   required=True, help='The sentence to test the model')
 args.add_argument('--infer', type=bool, default=True,
                   action=BooleanOptionalAction, help='Whether to inferences the model with your sentence or not')
-args.add_argument('--n-infer', type=int,
+args.add_argument('--num-infer', type=int,
                   default=100, help='Number of inferences on your sentence')
 
 opt = args.parse_args()
@@ -24,8 +24,8 @@ print(emoji)
 
 if opt.infer:
     start_time = time()
-    for i in range(opt.n_infer):
+    for i in range(opt.num_infer):
         classifier.predict(opt.sentence)
     
     duration = time() - start_time
-    print(f'\nAverage inference time: {duration / opt.n_infer}')
+    print(f'\nAverage inference time: {duration / opt.num_infer}')
