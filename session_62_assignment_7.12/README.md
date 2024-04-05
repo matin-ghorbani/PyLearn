@@ -1,6 +1,6 @@
-# Expert mode of tensorflow
+# Expert mode of Tensorflow
 
-***I used expert mode of tensorflow to solve these problems:***
+***I used expert mode of Tensorflow to solve these problems:***
 - *Mnist*
 - *Cifar10*
 - *Titanic*
