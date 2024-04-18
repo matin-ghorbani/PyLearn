@@ -1,0 +1,8 @@
+kaggle
+tensorflow
+imageio
+pillow
+opencv-python
+numpy
+matplotlib
+tqdm
